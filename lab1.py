@@ -28,7 +28,6 @@ with open(FILE_NAME, "w", encoding="utf-8") as file:
 
         #завантажуємо сторінку факультету
         fac_page = get(kaf_url, headers=HEADERS)
-
         soup = BeautifulSoup(fac_page.content,  "html.parser")
         dep_list = soup.find("article", class_="content divisions")
 
@@ -41,7 +40,6 @@ with open(FILE_NAME, "w", encoding="utf-8") as file:
 
             #завантажуємо сторінку кафедри
             dep_page = get(f"{dep_url}", headers=HEADERS)
-            #знаходимо список викладачів
             soup = BeautifulSoup(dep_page.content,  "html.parser")
             staff_table = soup.find("table")
             #для кожного викладача у списку
